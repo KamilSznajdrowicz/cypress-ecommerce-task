@@ -1,4 +1,4 @@
-import { fakeData } from "../fixtures/data";
+import { fakeData } from "../fixtures/fakedata";
 
 class RegistrationPage {
   clickRegisterAccount() {
