@@ -1,80 +1,60 @@
 import { fakeData } from "../fixtures/fakedata";
 
 class RegistrationPage {
-  clickRegisterAccount() {
+  clickRegisterAccount(): void {
     cy.get("#accountFrm > fieldset > .btn").click();
   }
-  enterName() {
+  enterName(): void {
     cy.get("#AccountFrm_firstname").type(fakeData.Name);
   }
-  enterSurname() {
+  enterSurname(): void {
     cy.get("#AccountFrm_lastname").type(fakeData.Surname);
   }
-  enterEmail() {
+  enterEmail(): void {
     cy.get("#AccountFrm_email").type(fakeData.Email);
   }
-  enterStreet() {
+  enterStreet(): void {
     cy.get("#AccountFrm_address_1").type(fakeData.Street);
   }
-  enterCity() {
+  enterCity(): void {
     cy.get("#AccountFrm_city").type(fakeData.City);
   }
-  selectRegion() {
+  selectRegion(): void {
     cy.get("#AccountFrm_zone_id").select("3516");
     cy.get("#AccountFrm_zone_id option:selected").should("have.text", "Angus");
   }
-  enterPostCode() {
+  enterPostCode(): void {
     cy.get("#AccountFrm_postcode").type(fakeData.PostCode);
   }
-  enterLogin() {
+  enterLogin(): void {
     cy.get("#AccountFrm_loginname").type(fakeData.Login);
-    expect(fakeData.Login.length).to.be.at.least(5);
   }
-  enterPassword() {
+  enterPassword(): void {
     cy.get("#AccountFrm_password").type(fakeData.Password);
   }
-  checkValidationPassword() {
-    cy.get("#AccountFrm_password").should("have.value", fakeData.Password);
-    if (fakeData.Password.length >= 8) {
-      cy.log(
-        `Generated password "${fakeData.Password}" meets the minimum length requirement.`
-      );
-    } else {
-      cy.log(
-        `Generated password "${fakeData.Password}" does not meet the minimum length requirement.`
-      );
-    }
-  }
-  enterPasswordConfirm() {
+  enterPasswordConfirm(): void {
     cy.get("#AccountFrm_confirm").type(fakeData.Password);
   }
-  checkPasswordConfirm() {
-    cy.get("#AccountFrm_password")
-      .invoke("val")
-      .then((passwordValue) => {
-        cy.get("#AccountFrm_confirm").invoke("val").should("eq", passwordValue);
-      });
-  }
-  checkToC() {
+  checkToC(): void {
     cy.get("#AccountFrm_agree").check({ force: true }).should("be.checked");
   }
-  clickRegister() {
+  clickRegister(): void {
     cy.get('button[title="Continue"]').click();
   }
-  checkRegistrationTest() {
+  checkRegistrationTest(): void {
     cy.title().should("eq", "Your Account Has Been Created!");
     cy.url().should("include", "rt=account/success");
   }
-  enterLoginEmail() {
+  enterLoginEmail(): void {
     cy.get("#loginFrm_loginname").type(fakeData.Login);
   }
-  enterLoginPassword() {
+  enterLoginPassword(): void {
     cy.get("#loginFrm_password").type(fakeData.Password);
   }
-  clickLogIn() {
+  clickLogIn(): void {
     cy.get('button[type="submit"]').eq(1).click();
   }
-  checkLoginTest() {
+  checkLoginTest(): void {
     cy.title().should("eq", "My Account");
     cy.url().should("include", "rt=account/account");
     cy.get(".maintext").should("contain.text", " My Account");

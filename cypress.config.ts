@@ -9,9 +9,10 @@ export default defineConfig({
     defaultCommandTimeout: 10000,
     pageLoadTimeout: 12000,
     screenshotOnRunFailure: true,
-    trashAssetsBeforeRuns: false,
+    trashAssetsBeforeRuns: true,
     video: false,
-    viewportHeight: 1920,
+    viewportWidth: 1920,
+    viewportHeight: 1080,
     chromeWebSecurity: false,
     retries: {
       runMode: 0,

@@ -1,38 +1,39 @@
 import "../support/commands";
 
 class CategoryPage {
-  checkResultsEyeWithoutFilters() {
+  checkResultsWithoutFilters(): void {
     cy.get(".col-md-3.col-sm-6.col-xs-12").then((elements) => {
-      // Sprawdź, czy znaleziono dokładnie 6 elementów
+      // Check if there are 6 items
       expect(elements.length).to.eq(6);
-
-      // Przykładowa akcja na pierwszym znalezionym elemencie
-      //   cy.wrap(elements).eq(0).click(); // Kliknięcie pierwszego elementu
-      //   // Tutaj można dodać więcej działań na znalezionych elementach
+      // cy.wrap(elements).eq(0).click(); // click first element
     });
   }
-  selectCategories() {
+
+  clickActiveProductFromResults(): void {
+    cy.get(".productcart").eq(0).click();
+  }
+  selectCategories(): void {
     cy.get("#category_id").select("0,36");
     cy.get("#category_id option:selected").should("contain", "Makeup");
   }
-  clickSearch() {
+  clickSearch(): void {
     cy.get("#search_button").click();
   }
-  checkSearchResults() {
+  checkSearchResults(): void {
     cy.checkSearchKeyword("eye");
   }
-  checkResultsEyeWithFilters() {
+  checkResultsWithFilters(): void {
     cy.get(".col-md-3.col-sm-6.col-xs-12").then((elements) => {
       expect(elements.length).to.eq(3);
     });
   }
 
-  selectPriceSorting() {
+  selectPriceSorting(): void {
     cy.get("#sort").select("p.price-ASC");
   }
 
-  checkPriceSorting() {
-    cy.checkPriceSorting(".col-md-3.col-sm-6.col-xs-12");
+  checkPriceSorting(): void {
+    cy.checkPriceSorting();
   }
 }
 
