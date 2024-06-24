@@ -13,6 +13,6 @@
 declare namespace Cypress {
   interface Chainable<Subject = any> {
     checkSearchKeyword(keyword: string): void;
-    checkPriceSorting(selector: string): void;
+    checkPriceSorting(): void;
   }
 }

@@ -9,18 +9,19 @@ describe("Category page testing", () => {
   beforeEach(() => {
     homePage.visitHomepage();
   });
+  // Test to check if filters works correctly.
   it("Product Search and Filter testing", () => {
     homePage.enterSearchKeywords();
     homePage.clickSearch();
-    categoryPage.checkResultsEyeWithoutFilters();
+    categoryPage.checkResultsWithoutFilters();
     categoryPage.selectCategories();
     categoryPage.clickSearch();
     categoryPage.checkSearchResults();
-    categoryPage.checkResultsEyeWithFilters();
+    categoryPage.checkResultsWithFilters();
   });
 
   // Additional test to check if sorting works correctly.
-  it("Product Search and sorting testing", () => {
+  it("Product Search and Sorting testing", () => {
     homePage.enterSearchKeywords();
     homePage.clickSearch();
     categoryPage.selectPriceSorting();

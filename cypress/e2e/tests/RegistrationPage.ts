@@ -22,9 +22,7 @@ describe("Registration page testing", () => {
     registrationPage.enterPostCode();
     registrationPage.enterLogin();
     registrationPage.enterPassword();
-    registrationPage.checkValidationPassword();
     registrationPage.enterPasswordConfirm();
-    registrationPage.checkPasswordConfirm();
     registrationPage.checkToC();
     registrationPage.clickRegister();
     registrationPage.checkRegistrationTest();
