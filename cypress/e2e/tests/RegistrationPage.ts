@@ -12,6 +12,7 @@ describe("Registration page testing", () => {
   });
 
   it("Create a new user account with unique data", () => {
+    //Register
     registrationPage.clickRegisterAccount();
     registrationPage.enterName();
     registrationPage.enterSurname();
@@ -26,12 +27,32 @@ describe("Registration page testing", () => {
     registrationPage.checkToC();
     registrationPage.clickRegister();
     registrationPage.checkRegistrationTest();
-  });
-
-  it("Log in to a new user account", () => {
+    //Logout
+    registrationPage.mouseOverMenu();
+    registrationPage.logOff();
+    registrationPage.checkLogOff();
+    //Login
+    homePage.clickAccountWidget();
     registrationPage.enterLoginEmail();
     registrationPage.enterLoginPassword();
     registrationPage.clickLogIn();
     registrationPage.checkLoginTest();
+  });
+
+  it("Create user account with invalid email address - Validation Test", () => {
+    registrationPage.clickRegisterAccount();
+    registrationPage.enterName();
+    registrationPage.enterSurname();
+    registrationPage.enterIncorrectEmail();
+    registrationPage.enterStreet();
+    registrationPage.enterCity();
+    registrationPage.selectRegion();
+    registrationPage.enterPostCode();
+    registrationPage.enterLogin();
+    registrationPage.enterPassword();
+    registrationPage.enterPasswordConfirm();
+    registrationPage.checkToC();
+    registrationPage.clickRegister();
+    registrationPage.checkValidationEmail();
   });
 });
