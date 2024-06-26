@@ -36,21 +36,24 @@ Make sure you have the following versions of Node.js and npm installed:
 
 The folder structure of this project is as follows:
 
+```bash
 cypress-ecommerce-task/
 │
 ├── cypress/
-│ ├── e2e / tests / # Test cases
-│ │ ├── CategoryPage.ts / # Product Search, Filter and Sorting tests
-│ │ ├── ProductPage.ts / # Adding items to cart and validation tests
-│ │ ├── RegistrationPage.ts / # Registration, login and one sample happy path tests
-│ ├── fixtures / # Test data also with fake data from Faker library
-│ ├── pageObjects / # Page Objects with functions for interacting with the application
+│ ├── e2e/tests/ # Test cases
+│ │ ├── CategoryPage.ts # Product Search, Filter, and Sorting tests
+│ │ ├── ProductPage.ts # Adding items to cart and validation tests
+│ │ └── RegistrationPage.ts # Registration, login, and sample happy path tests
+│ ├── fixtures/ # Test data, including fake data from Faker library
+│ ├── pageObjects/ # Page Objects with functions for interacting with the application
 │ └── support/ # Custom commands and support files
 ├── .gitignore # Files and directories to ignore in Git
 ├── cypress.config.ts # Cypress configuration
-├── package.json, package-lock.json # Project metadata and scripts
+├── package.json # Project metadata and scripts
+├── package-lock.json # Lock file for npm dependencies
 ├── README.md # Project documentation
 └── tsconfig.json # TypeScript configuration
+```
 
 ## Scripts
 
@@ -63,14 +66,21 @@ The following scripts are available in the `package.json` file:
 
 This project includes tests for the following scenarios:
 
-1. **User Registration and Login**:
-   1.1. Ensure users can register and log in successfully.
-   1.2. Ensure users can't register with invalid email address - Happy PATH
-2. **Product Search and Filter**:
-   2.1. Verify that users can search for and filter products.
-   2.2. Verify that users can search for and sorting products.
-3. **Adding Items to Cart**:
-   3.1. Confirm that users can add searching item to their shopping cart.
+#### User Registration and Login:
+
+1. Ensure users can register and log in successfully.
+
+2. Ensure users can't register with an invalid email address - Happy PATH
+
+#### Product Search and Filter:
+
+1. Verify that users can search for and filter products.
+
+2. Verify that users can search for and sort products.
+
+#### Adding Items to Cart:
+
+1. Confirm that users can add searching item to their shopping cart.
 
 ## Running Tests
 
