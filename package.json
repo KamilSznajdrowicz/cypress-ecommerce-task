@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "cypress-o": "npx cypress open",
-    "cypress-r": "npx cypress run"
+    "cypress-r": "npx cypress run --browser chrome"
   },
   "keywords": [],
   "author": "",

@@ -15,6 +15,7 @@ describe("Product page testing", () => {
     homePage.enterSearchKeywords();
     homePage.clickSearch();
   });
+
   it("Adding Items to Cart", () => {
     categoryPage.clickActiveProductFromResults();
     // Get product title from PDP and add to cart

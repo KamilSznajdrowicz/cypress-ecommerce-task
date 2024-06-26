@@ -59,6 +59,29 @@ class RegistrationPage {
     cy.url().should("include", "rt=account/account");
     cy.get(".maintext").should("contain.text", " My Account");
   }
+  enterIncorrectEmail(): void {
+    cy.get("#AccountFrm_email").type(fakeData.Login);
+  }
+  checkValidationEmail(): void {
+    const expectedError = "Email Address does not appear to be valid!";
+    cy.get(".alert.alert-error.alert-danger")
+      .invoke("text")
+      .then((actualError) => {
+        const cleanedError = actualError.replace(/\s+/g, " ").trim();
+        expect(cleanedError).to.contain(expectedError);
+      });
+  }
+  mouseOverMenu() {
+    cy.get("#customer_menu_top").trigger("mouseover");
+  }
+  logOff() {
+    cy.contains("Logoff").click();
+  }
+
+  checkLogOff() {
+    cy.url().should("include", "rt=account/logout");
+    cy.get(".maintext").should("contain.text", " Account Logout");
+  }
 }
 
 export default RegistrationPage;

@@ -3,8 +3,7 @@ import "../support/commands";
 class CategoryPage {
   checkResultsWithoutFilters(): void {
     cy.get(".col-md-3.col-sm-6.col-xs-12").then((elements) => {
-      // Check if there are 6 items
-      expect(elements.length).to.eq(6);
+      expect(elements.length).to.eq(6); // Check if there are 6 items
       // cy.wrap(elements).eq(0).click(); // click first element
     });
   }
