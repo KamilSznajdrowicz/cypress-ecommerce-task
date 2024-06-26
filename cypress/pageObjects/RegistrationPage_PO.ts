@@ -71,14 +71,14 @@ class RegistrationPage {
         expect(cleanedError).to.contain(expectedError);
       });
   }
-  mouseOverMenu() {
+  mouseOverMenu(): void {
     cy.get("#customer_menu_top").trigger("mouseover");
   }
-  logOff() {
+  logOff(): void {
     cy.contains("Logoff").click();
   }
 
-  checkLogOff() {
+  checkLogOff(): void {
     cy.url().should("include", "rt=account/logout");
     cy.get(".maintext").should("contain.text", " Account Logout");
   }
